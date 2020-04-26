@@ -1,0 +1,90 @@
+环境
+window、linux、macos
+
+数据库
+mysql
+
+中间件
+redis、rabbitmq、
+
+微服务治理 
+dubbo
+
+服务注册中心
+zk
+
+
+
+
+1.修改的保存的时候， 如果状态是uat，当前时间在生效之前, 否则不允许修改
+2.审核的时候，当前时间必须在活动生效时间之前
+
+
+
+var jsonStr = ["{\"a\":{\"listdiscount\":100},\"c\":{\"amountListTotal\":100,\"multiple\":1,\"notActivity\":\"1,2,3,4\",\"uat\":true}}"];
+
+
+["{\"a\":{\"listdiscount\":100},\"c\":{\"amountListTotal\":100,\"multiple\":1,\"notActivity\":\"1,2,3,4\",\"uat\":true}}"]
+
+["{\"c\":{\"quantity\":\"100\",\"add_on_item\":\"100\",\"couponBind\":\"142\"},\"a\":{\"listdiscount\":\"0.5\"}}"]
+["{\"a\":{\"listdiscount\":100},\"c\":{\"amountListTotal\":100,\"multiple\":1,\"notActivity\":\"1,2,3,4\",\"uat\":true}}"]
+==>[{"c":{"quantity":"100","add_on_item":"100","couponBind":"142"},"a":{"listdiscount":"0.5"}}]
+
+
+
+
+amountExtTotalDiscount
+amountListTotal
+
+
+condition.setAmountExtTotalDiscount($('#amountExtTotalDiscountSelect').val() + $('#amountExtTotalDiscount').val());
+condition.setAmountListTotal($('#amountListTotalSelect').val()+$('#amountListTotal').val());
+
+
+
+[
+    {
+        "a": {
+            "discount": 100
+        },
+        "c": {
+            "amountExtTotalDiscount": "<=100",
+            "amountListTotal": "<=1000",
+            "uat": true
+        }
+    }
+]
+
+
+
+    1: "购物满X件",
+    2: "会员类型",
+    3: "购物金额设置",
+    4: "直接满减打折",
+    5: "优惠券活动",
+    6: "送赠品",
+    7: "购物车所有商品吊牌价之和",
+    8: "排除活动id",
+    9: "每满足一件就送一件赠品",
+    10: "markdown商品在原价基础上打折",
+    11: "优惠券一对一绑定"
+
+
+1. lock：主内存操作，锁定变量，标识其为线程独占的状态。
+2. unlock：主内存操作，解锁变量，将其从线程独占的状态中释放出来。
+3. read：主内存操作，读取变量到工作内存。
+4. load：工作内存操作，将读取到的变量赋值给工作内存中的变量副本。
+5. use：工作内存操作，将变量值传递给执行引擎以供操作。
+6. assign：工作内存操作，将执行引擎操作后的值赋给工作内存中的变量。
+7. store：工作内存操作，将工作内存中的变量传递给主内存。
+8. write：主内存变量，将store得到的值写入主内存中的变量。
+
+
+
+1.独占锁
+2.共享锁 允许同一个资源同时被多个线程获取锁，=》ReadWriteLock
+
+
+
+
+sleep
