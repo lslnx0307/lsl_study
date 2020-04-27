@@ -3,6 +3,7 @@ package com.lsl;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author shiliang.li
@@ -18,6 +19,12 @@ public class MySemaphore {
     private static void semaphoreMethod() {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         Semaphore semaphore = new Semaphore(2);
+
+
+        System.out.println(semaphore.availablePermits());
+
+
+
         for (int i = 0; i < 10; i++) {
             final int No = i;
             Runnable runnable = () -> {

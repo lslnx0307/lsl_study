@@ -32,7 +32,6 @@ public class ObjectLock {
     }
 
     public static void main(String[] args) {
-
         for (int i = 0; i < 5; i++) {
             Thread t1 = new Thread(new ObjectLockWorker());
             t1.setName("kite-" + i);
@@ -48,8 +47,8 @@ public class ObjectLock {
             ObjectLock lock = new ObjectLock();
             try {
 //                lock.lockObjectFiled();
-//                lock.lockThis();
-                lock.methodLock();
+                lock.lockThis();
+//                lock.methodLock();
             } catch (Exception e) {
                 e.printStackTrace();
             }
